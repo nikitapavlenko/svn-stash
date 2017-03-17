@@ -105,7 +105,7 @@ class svn_stash:
 			randkey = random.getrandbits(128) #unique identifier
 			self.files[target_file] = randkey
 			result = os.popen("svn diff " + target_file + " > " + SVN_STASH_DIR + "/" + str(randkey) + ".stash.patch").read()
-			result += os.popen("svn revert " + target_file).read()
+			result += os.popen("svn revert " + target_file + " --depth infinity").read()
 			#print "push " + target_file
 
 	def pop(self):

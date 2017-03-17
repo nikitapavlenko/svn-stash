@@ -109,6 +109,9 @@ def obtain_svn_status_files():
 			filename = elements[1]
 			if status == "M":
 				status_files.append(filename)
+			if status == "A":
+				status_files.append(filename)
+
 	return status_files
 
 def main(args):
